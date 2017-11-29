@@ -212,7 +212,7 @@ delete 'products/:id'      => 'products#destroy'
 To direct a url without a path (aka the `root` path), use:
 
 ```ruby
-root to: 'products#index'
+root 'products#index'
 ```
 
 If your url is `localhost:3000`, then this would direct
@@ -255,7 +255,7 @@ destroy     delete    remove a single record
 
 # Views
 
-For `get` requests, the **controller** will implicitly try to render (process and send back as html) a template in a folder named after the controller, and a file named after the method.
+For `get` requests, the **controller** will implicitly try to render (create html) from a template in a folder named after the controller, and a file named after the method.
 
 For example, a `ProductsController` will try to render the following:
 
@@ -319,7 +319,7 @@ def index
 end
 ```
 
-Notice how `@products` is pluralized. This is because it's a collection (more than 1) of all the products.
+Notice how `@products` is pluralized. This is because it's a collection (zero, one, two or more) of all the products.
 
 Pluralizing variable names for collections is a convention. Technically, a variable name for a collection can be singular, but your code will be easier to read and reason about if you pluralize it.
 
@@ -408,11 +408,11 @@ def update
 end
 ```
 
-If the `product` successfully saves with the altered values from the form, the changes will now be stored permanently in the database.
+If the `product` successfully saves with the altered values from the form, the changes will be stored permanently in the database.
 
 ### Destroy
 
-For removing a an item from the database.
+For removing an item from the database.
 
 ```ruby
 def destroy
